@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Bandung Apps</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="wisata">Wisata</string>
+    <string name="maps">Maps</string>
+    <string name="profil_pembuat">Profil Pembuat</string>
+
+    <string name="kelas">Kelas</string>
+    <string name="email">Email</string>
+    <string name="ig">Instagram</string>
+    <string name="date">Date</string>
+    <string name="nim">Nim</string>
+    <string name="nama">Nama</string>
+    <string name="submit">Submit</string>
+    <string name="telepon">Telepon</string>
+    <string name="delete">Delete</string>
+    <string name="deskripsi">Mahasiswa semester 6 jurusan Teknik Informatika di Universitas Komputer Indonesia Kota Bandung</string>
+    <string name="email_menu_kontak">alfan.wahyudi98@gmail.com</string>
+    <string name="noTelepon">085284584219</string>
+    <string name="instagram_name">alfan.id</string>
+    <string name="fungsi">FUNGSI</string>
+    <string name="fungsi_pertama">Menampilkan profil kontak dari developer</string>
+</resources>
