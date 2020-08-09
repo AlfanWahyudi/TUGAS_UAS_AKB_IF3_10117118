@@ -6,7 +6,7 @@ public class databaseAtribut {
 
     public static final class NoteColumns {
         public static String ID_wisata = "ID_wisata";
-        public static String nama_wisata = "nama_wisata";
+        public static String nama_wisata = "namaWisata";
         public static String kategori_wisata = "kategori_wisata";
         public static String alamat_wisata= "alamat_wisata";
         public static String keterangan_wisata= "keterangan_singkat";

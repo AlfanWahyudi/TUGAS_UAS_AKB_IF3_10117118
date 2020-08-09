@@ -45,22 +45,22 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
 
         notifyDataSetChanged();
     }
-//
-//    public void addItem(wisataBandung note){
-//        this.listWisataBandung.add(note);
-//        notifyItemInserted(listWisataBandung.size() -1);
-//    }
-//
-//    public void updateItem(int position, wisataBandung note){
-//        this.listWisataBandung.set(position, note);
-//        notifyItemChanged(position, note);
-//    }
-//
-//    public void removeItem(int position){
-//        this.listWisataBandung.remove(position);
-//        notifyItemRemoved(position);
-//        notifyItemRangeChanged(position, listWisataBandung.size());
-//    }
+
+    public void addItem(wisataBandung note){
+        this.listWisataBandung.add(note);
+        notifyItemInserted(listWisataBandung.size() -1);
+    }
+
+    public void updateItem(int position, wisataBandung note){
+        this.listWisataBandung.set(position, note);
+        notifyItemChanged(position, note);
+    }
+
+    public void removeItem(int position){
+        this.listWisataBandung.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, listWisataBandung.size());
+    }
 
     @NonNull
     @Override
@@ -76,8 +76,6 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
         holder.tvAlamat.setText(listWisataBandung.get(position).getAlamat());
         holder.tvKeterangan.setText(listWisataBandung.get(position).getKeterangan());
         holder.imgGambar.setImageBitmap(BitmapFactory.decodeByteArray(listWisataBandung.get(position).getImg(), 0, listWisataBandung.get(position).getImg().length));
-        //holder.tvIg.setText(listWisataBandung.get(position).getIg());
-        //holder.tvDate.setText(listWisataBandung.get(position).getDate());
 //        holder.cvNote.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
 //            @Override
 //            public void onItemClicked(View view, int position) {
@@ -95,6 +93,7 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
     }
 
     public class WisataViewHolder extends RecyclerView.ViewHolder{
+        //final TextView tvNamaWisata, tvKategori;
         final TextView tvNamaWisata, tvKategori, tvAlamat, tvKeterangan;
         final ImageView imgGambar;
         final CardView cvNote;

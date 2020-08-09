@@ -35,7 +35,6 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
     private RecyclerView rvNotes;
     private wisataBandungHelper helper;
     private static final String EXTRA_STATE = "EXTRA_STATE";
-    private WisataViewModel mWisataViewModel;
     private ListView mListView;
     //private ArrayList<wisataBandung> mList;
     //private WisataAdapter adapter = null;
@@ -49,11 +48,9 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mWisataViewModel =
-                ViewModelProviders.of(this).get(WisataViewModel.class);
 
         View view = inflater.inflate(R.layout.wisata_fragment, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         //mList = new ArrayList<>();
         //adapter = new WisataAdapter(this, R.layout.item_note, mList);
         progressBar = view.findViewById(R.id.progressbar);
@@ -84,12 +81,12 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
         return view;
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
-    }
-
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
+//    }
+//
     @Override
     public void preExecute() {
         new Runnable(){

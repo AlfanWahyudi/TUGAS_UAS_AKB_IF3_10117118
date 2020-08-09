@@ -7,9 +7,9 @@
         android:title="@string/wisata" />
 
     <item
-        android:id="@+id/navigation_maps"
+        android:id="@+id/navigation_tentang"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/maps" />
+        android:title="@string/tentan_aplikasi" />
 
     <item
         android:id="@+id/navigation_profilPembuat"

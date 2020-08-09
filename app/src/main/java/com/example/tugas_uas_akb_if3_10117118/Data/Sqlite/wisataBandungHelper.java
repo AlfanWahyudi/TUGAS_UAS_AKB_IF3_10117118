@@ -12,7 +12,7 @@ import static com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.databaseAtribut
 public class wisataBandungHelper {
     private static final String DATABASE_TABLE = "wisataBandung";
     private static wisataBandungHelper INSTANCE;
-    private static sqliteHelper databaseHelper;
+    private static SQLiteOpenHelper databaseHelper;
     private static SQLiteDatabase db;
 
     private wisataBandungHelper(Context context) {
@@ -44,7 +44,7 @@ public class wisataBandungHelper {
 
     public Cursor queryAll(){
         return db.query(
-                DATABASE_TABLE,
+                "wisataBandung",
                 null,
                 null,
                 null,
