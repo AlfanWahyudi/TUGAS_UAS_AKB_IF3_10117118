@@ -50,7 +50,7 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.wisata_fragment, container, false);
-        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         //mList = new ArrayList<>();
         //adapter = new WisataAdapter(this, R.layout.item_note, mList);
         progressBar = view.findViewById(R.id.progressbar);
@@ -71,22 +71,16 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
               adapter.setListNotes(list);
             }
         }
-////        final TextView textView = root.findViewById(R.id.text_home);
-////        mWisataViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-////            @Override
-////            public void onChanged(@Nullable String s) {
-////                textView.setText(s);
-////            }
-////        });
+
         return view;
     }
 
-//    @Override
-//    public void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
-//    }
-//
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
+    }
+
     @Override
     public void preExecute() {
         new Runnable(){

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tugas_uas_akb_if3_10117118.Data.Model.wisataBandung;
 
 import com.example.tugas_uas_akb_if3_10117118.R;
+import com.example.tugas_uas_akb_if3_10117118.ui.wisata.DetailWisata;
 
 
 import java.util.ArrayList;
@@ -76,15 +77,15 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
         holder.tvAlamat.setText(listWisataBandung.get(position).getAlamat());
         holder.tvKeterangan.setText(listWisataBandung.get(position).getKeterangan());
         holder.imgGambar.setImageBitmap(BitmapFactory.decodeByteArray(listWisataBandung.get(position).getImg(), 0, listWisataBandung.get(position).getImg().length));
-//        holder.cvNote.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
-//            @Override
-//            public void onItemClicked(View view, int position) {
-//                Intent intent = new Intent(activity, TemanUpdate.class);
-//                intent.putExtra(TemanUpdate.EXTRA_POSITION, position);
-//                intent.putExtra(TemanUpdate.EXTRA_NOTE, listWisataBandung.get(position));
-//                activity.startActivityForResult(intent, TemanUpdate.REQUEST_UPDATE);
-//            }
-//        }));
+        holder.cvNote.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Intent intent = new Intent(activity, DetailWisata.class);
+                intent.putExtra(DetailWisata.EXTRA_POSITION, position);
+                intent.putExtra(DetailWisata.EXTRA_NOTE, listWisataBandung.get(position));
+                activity.startActivityForResult(intent, DetailWisata.REQUEST_UPDATE);
+            }
+        }));
     }
 
     @Override
