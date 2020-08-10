@@ -1,17 +1,15 @@
 package com.example.tugas_uas_akb_if3_10117118.Data.Sqlite;
 
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.provider.BaseColumns;
 
-import com.example.tugas_uas_akb_if3_10117118.Data.Model.wisataBandung;
+import com.example.tugas_uas_akb_if3_10117118.Data.Model.WisataBandung;
 
 import java.util.ArrayList;
 
-public class mapHelper implements BaseColumns {
-    public static ArrayList<wisataBandung> mapCursorToArrayList(Cursor wisataBandungCursor){
-        ArrayList<wisataBandung> wisataBandungList =new ArrayList<>();
+public class mapHelper{
+    public static ArrayList<WisataBandung> mapCursorToArrayList(Cursor wisataBandungCursor){
+        ArrayList<WisataBandung> wisataBandungList =new ArrayList<>();
 
         while (wisataBandungCursor.moveToNext()){
 //            int id = wisataBandungCursor.getInt(0);
@@ -26,7 +24,7 @@ public class mapHelper implements BaseColumns {
             String alamat = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.alamat_wisata));
             String keterangan = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.keterangan_wisata));
             byte[] img = wisataBandungCursor.getBlob(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.gambar_wisata));
-            wisataBandungList.add(new wisataBandung(id, namaWisata, kategori, alamat, keterangan, img));
+           // wisataBandungList.add(new WisataBandung(id, namaWisata, kategori, alamat, keterangan, img));
 
         }
 

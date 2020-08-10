@@ -2,13 +2,13 @@ package com.example.tugas_uas_akb_if3_10117118.ui.wisata;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.tugas_uas_akb_if3_10117118.Data.Model.wisataBandung;
+
+import com.example.tugas_uas_akb_if3_10117118.Data.Model.WisataBandung;
 import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.wisataBandungHelper;
 import com.example.tugas_uas_akb_if3_10117118.R;
 
@@ -18,7 +18,7 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
     public ImageButton ImgButtonMaps;
 
     private boolean isDetail = false;
-    private wisataBandung mWisataBadung;
+    private WisataBandung mWisataBadung;
     private wisataBandungHelper wisataHelper;
     private int position;
 
@@ -45,24 +45,24 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-        wisataHelper = wisataBandungHelper.getInstance(getApplicationContext());
-
-        //mWisataBadung = getIntent().getParcelableExtra(EXTRA_NOTE);
-        if (mWisataBadung != null){
-            position = getIntent().getIntExtra(EXTRA_POSITION, 0);
-            isDetail= true;
-        }else {
-            mWisataBadung = new wisataBandung();
-        }
-
-        if(isDetail){
-            if (mWisataBadung != null){
-                detailNamaWisata.setText(mWisataBadung.getNamaWisata());
-                detailKategoriWisata.setText(mWisataBadung.getKategori());
-                detailAlamatWisata.setText(mWisataBadung.getAlamat());
-                detailGambarWisata.setImageBitmap(BitmapFactory.decodeByteArray(mWisataBadung.getImg(), 0, mWisataBadung.getImg().length));
-            }
-        }
+//        wisataHelper = wisataBandungHelper.getInstance(getApplicationContext());
+//
+//        mWisataBadung = getIntent().getParcelableExtra(EXTRA_NOTE);
+//        if (mWisataBadung != null){
+//            position = getIntent().getIntExtra(EXTRA_POSITION, 0);
+//            isDetail= true;
+//        }else {
+//            mWisataBadung = new WisataBandung();
+//        }
+//
+//        if(isDetail){
+//            if (mWisataBadung != null){
+//                detailNamaWisata.setText(mWisataBadung.getNamaWisata());
+//                detailKategoriWisata.setText(mWisataBadung.getKategori());
+//                detailAlamatWisata.setText(mWisataBadung.getAlamat());
+//                detailGambarWisata.setImageBitmap(BitmapFactory.decodeByteArray(mWisataBadung.getImg(), 0, mWisataBadung.getImg().length));
+//            }
+//        }
 
 
     }

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import static com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.databaseAtribut.NoteColumns.ID_wisata;
 
 public class wisataBandungHelper {
-    private static final String DATABASE_TABLE = "wisataBandung";
+    private static String DATABASE_TABLE = "wisataBandung";
     private static wisataBandungHelper INSTANCE;
     private static SQLiteOpenHelper databaseHelper;
     private static SQLiteDatabase db;
@@ -44,7 +44,7 @@ public class wisataBandungHelper {
 
     public Cursor queryAll(){
         return db.query(
-                "wisataBandung",
+                DATABASE_TABLE,
                 null,
                 null,
                 null,

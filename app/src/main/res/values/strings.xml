@@ -1,21 +1,19 @@
 <resources>
     <string name="app_name">Bandung Apps</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="wisata">Wisata</string>
     <string name="profil_pembuat">Profil Pembuat</string>
-    <string name="splash_name">Hello There</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nama_wisata">Nama Wisata</string>
     <string name="kategori_wisata">kategori wisata</string>
     <string name="alamat_wisata">alamat_wisata</string>
-    <string name="keterangan">Keterangan</string>
     <string name="tentan_aplikasi">Tentang Aplikasi</string>
     <string name="deskripsi">Mahasiswa universitas komputer indonesia</string>
     <string name="fungsi">FUNGSI</string>
     <string name="fungsi_pertama">Menampilkan profil kontak dari developer</string>
     <string name="kategori">Kategori</string>
+    <string name="buka">Buka:</string>
+    <string name="jam_operasional">Jam Operasional:</string>
+    <string name="_8am_8pm">8AM-8PM</string>
+    <string name="senin_minggu">Senin-Minggu</string>
 </resources>
