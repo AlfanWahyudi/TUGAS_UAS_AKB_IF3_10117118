@@ -25,16 +25,16 @@
             android:fontFamily="sans-serif-medium"
             android:textSize="25dp"
             android:textColor="@color/textPrimary"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="110dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/textSecondary"
             android:fontFamily="sans-serif"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="40dp"
             android:textSize="15dp"
-            android:text="Mengenai informasi pribadi developer"/>
+            android:text="@string/keterangan_aplikasi"/>
 
 
     </LinearLayout>

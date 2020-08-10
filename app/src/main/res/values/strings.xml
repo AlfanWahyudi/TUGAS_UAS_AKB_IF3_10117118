@@ -10,10 +10,13 @@
     <string name="tentan_aplikasi">Tentang Aplikasi</string>
     <string name="deskripsi">Mahasiswa universitas komputer indonesia</string>
     <string name="fungsi">FUNGSI</string>
-    <string name="fungsi_pertama">Menampilkan profil kontak dari developer</string>
+    <string name="fungsi_pertama">Menampilkan daftar wisata</string>
     <string name="kategori">Kategori</string>
     <string name="buka">Buka:</string>
     <string name="jam_operasional">Jam Operasional:</string>
     <string name="_8am_8pm">8AM-8PM</string>
     <string name="senin_minggu">Senin-Minggu</string>
+    <string name="maps">Maps</string>
+    <string name="keterangan_aplikasi">Menampilkan tempat wisata di wilayah Bandung</string>
+    <string name="menampilkan_lokasi_tempat_wisata">Menampilkan lokasi tempat wisata</string>
 </resources>

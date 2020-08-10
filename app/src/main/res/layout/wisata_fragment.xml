@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.wisata.wisataFragment">
+    tools:context=".ui.wisata.wisataFragment"
+    android:paddingTop="?attr/actionBarSize">
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -19,11 +20,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rv_notes" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_notes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_note"/>
+        tools:layout_editor_absoluteX="-31dp"
+        tools:layout_editor_absoluteY="-230dp"
+        tools:listitem="@layout/item_note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
