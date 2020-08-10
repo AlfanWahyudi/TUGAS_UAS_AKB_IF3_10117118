@@ -7,7 +7,7 @@
         android:title="@string/wisata" />
 
     <item
-        android:id="@+id/navigation_tentang"
+        android:id="@+id/navigation_maps"
         android:icon="@drawable/ic_map_24"
         android:title="@string/maps" />
 

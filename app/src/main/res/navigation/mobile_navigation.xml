@@ -11,10 +11,10 @@
         tools:layout="@layout/wisata_fragment" />
 
     <fragment
-        android:id="@+id/navigation_tentang"
-        android:name="com.example.tugas_uas_akb_if3_10117118.ui.informasi.TentangAplikasi"
+        android:id="@+id/navigation_maps"
+        android:name="com.example.tugas_uas_akb_if3_10117118.ui.Maps.MapsFragment"
         android:label="@string/tentan_aplikasi"
-        tools:layout="@layout/fragment_tentang_aplikasi" />
+        tools:layout="@layout/fragment_maps" />
 
     <fragment
         android:id="@+id/navigation_profilPembuat"
