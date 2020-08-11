@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_kontak"
-        android:icon="@drawable/ic_map_24"
-        android:title="@string/maps" />
+        android:icon="@drawable/ic_baseline_contact_support_24"
+        android:title="@string/kontak_pembuat" />
 
     <item
         android:id="@+id/navigation_profilPembuat"
-        android:icon="@drawable/ic_baseline_account_box_24"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profil_pembuat" />
 
 </menu>
