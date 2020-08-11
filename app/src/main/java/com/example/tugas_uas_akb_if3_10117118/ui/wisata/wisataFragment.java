@@ -1,54 +1,47 @@
 package com.example.tugas_uas_akb_if3_10117118.ui.wisata;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-
 import com.example.tugas_uas_akb_if3_10117118.Data.Model.WisataBandung;
-import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.databaseAtribut;
 import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.mapHelper;
-import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.sqliteHelper;
 import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.wisataBandungHelper;
 import com.example.tugas_uas_akb_if3_10117118.Presenter.AdapterWisataBandung;
-import com.example.tugas_uas_akb_if3_10117118.Presenter.WisataBandungAdapter;
 import com.example.tugas_uas_akb_if3_10117118.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.List;
 
-public class wisataFragment extends Fragment{
+
+public class wisataFragment extends Fragment implements LoadWisataCallback{
 
     private RecyclerView rvNotes;
     private wisataBandungHelper helper;
     private static final String EXTRA_STATE = "EXTRA_STATE";
     //private ListView rvNotes;
-    private ArrayList<WisataBandung> mList = new ArrayList<>();
+    private WisataBandung wisataBandung;
+   // private ArrayList<WisataBandung> mList = new ArrayList<>();
     //private WisataAdapter adapter = null;
     private AdapterWisataBandung adapter;
     private ProgressBar progressBar;
-    private LinearLayoutManager linearLayoutManager;
+    //private LinearLayoutManager linearLayoutManager;
 
     public wisataFragment() {
 
@@ -63,33 +56,56 @@ public class wisataFragment extends Fragment{
         //adapter = new WisataAdapter(this, R.layout.item_note, mList);
         progressBar = view.findViewById(R.id.progressbar);
         rvNotes = view.findViewById(R.id.rv_notes);
-        linearLayoutManager = new LinearLayoutManager(getActivity());
-        adapter = new AdapterWisataBandung(mList);
-        rvNotes.setLayoutManager(linearLayoutManager);
+        rvNotes.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvNotes.setHasFixedSize(true);
+        adapter = new AdapterWisataBandung(getActivity());
         rvNotes.setAdapter(adapter);
 
         helper = wisataBandungHelper.getInstance(getActivity());
         helper.open();
-        //rvNotes.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //rvNotes.setHasFixedSize(true);
-        //adapter = new AdapterWisataBandung(getActivity());
+//
+//        ContentValues values = new ContentValues();
+//        values.put(nama_wisata, "Bandung");
+//        values.put(kategori_wisata, "taman");
+//        values.put(alamat_wisata, "jln sekeloa utara 1");
+//        values.put(hari_buka, "senin-minggu");
+//        values.put(gambar_wisata, "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/filters:watermark(file/2017/cms/img/watermark.png,-0,0,0)/photo/2020/04/13/682906642.jpg");
+//        values.put(jam_operasional, "8AM-5PM");
+//        long result = helper.insert(values);
+//
+//        ContentValues values1 = new ContentValues();
+//        values1.put(nama_wisata, "Banduafsdfng");
+//        values1.put(kategori_wisata, "taasfman");
+//        values1.put(alamat_wisata, "jln sekasdfeloa utara 1");
+//        values1.put(hari_buka, "senin-minggasdfu");
+//        values1.put(gambar_wisata, "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/filters:watermark(file/2017/cms/img/watermark.png,-0,0,0)/photo/2020/04/13/682906642.jpg");
+//        values1.put(jam_operasional, "8AM-5PadsfadM");
+//        long result1 = helper.insert(values1);
 
+//        if(result == true){
+//            Toast.makeText(getActivity(),"berhasil ditambahkan",Toast.LENGTH_SHORT).show();
+//
+//        }else{
+//            Toast.makeText(getActivity(),"gagal ditambahkan",Toast.LENGTH_SHORT).show();
+//        }
 
-
-
-        Cursor cursor = helper.queryAll();
-        while ( cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String namaWisata = cursor.getString(1);
-            String kategori = cursor.getString(2);
-            String alamat = cursor.getString(3);
-            String hariBuka = cursor.getString(4);
-            byte[] img = cursor.getBlob(5);
-            String jamOperasional= cursor.getString(6);
-
-            mList.add(new WisataBandung(id, namaWisata, kategori, alamat, hariBuka, img, jamOperasional));
+        if (savedInstanceState == null) {
+            new LoadNotesAsync(helper, this).execute();
+        } else {
+            ArrayList<WisataBandung> list = savedInstanceState.getParcelableArrayList(EXTRA_STATE);
+            if (list != null) {
+                adapter.setListNotes(list);
+            }
         }
-        adapter.notifyDataSetChanged();
+
+
+
+
+
+//        Cursor cursor = helper.queryAll();
+//        adapter.setListNotes(mList, cursor);
+//        adapter.getListNotes();
+
 
 //        rvNotes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 //            @Override
@@ -127,69 +143,69 @@ public class wisataFragment extends Fragment{
         return byteArray;
     }
 
-//    @Override
-//    public void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
-//    }
-//
-//    @Override
-//    public void preExecute() {
-//        new Runnable(){
-//            @Override
-//            public void run() {
-//                progressBar.setVisibility(View.VISIBLE);
-//            }
-//        };
-//    }
-//
-//    @Override
-//    public void postExecute(ArrayList<WisataBandung> notes) {
-//        progressBar.setVisibility(View.INVISIBLE);
-//        if (notes.size() > 0) {
-//            adapter.setListNotes(notes);
-//        } else {
-//            adapter.setListNotes(new ArrayList<WisataBandung>());
-//            showSnackbarMessage("Tidak ada data saat ini");
-//        }
-//    }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(EXTRA_STATE, adapter.getListNotes());
+    }
 
-//    private static class LoadNotesAsync extends AsyncTask<Void, Void, ArrayList<WisataBandung>> {
-//        private final WeakReference<wisataBandungHelper> weakNoteHelper;
-//        private final WeakReference<LoadWisataCallback> weakCallback;
-//
-//        private LoadNotesAsync(wisataBandungHelper noteHelper, LoadWisataCallback callback) {
-//            this.weakNoteHelper = new WeakReference<>(noteHelper);
-//            this.weakCallback = new WeakReference<>(callback);
-//        }
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            weakCallback.get().preExecute();
-//        }
-//
-//        @Override
-//        protected ArrayList<WisataBandung> doInBackground(Void... voids) {
-//            Cursor dataCursor = weakNoteHelper.get().queryAll();
-//            return mapHelper.mapCursorToArrayList(dataCursor);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(ArrayList<WisataBandung> notes) {
-//            super.onPostExecute(notes);
-//            weakCallback.get().postExecute(notes);
-//        }
-//    }
-//
+    @Override
+    public void preExecute() {
+        new Runnable(){
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        };
+    }
+
+    @Override
+    public void postExecute(ArrayList<WisataBandung> notes) {
+        progressBar.setVisibility(View.INVISIBLE);
+        if (notes.size() > 0) {
+            adapter.setListNotes(notes);
+        } else {
+            adapter.setListNotes(new ArrayList<WisataBandung>());
+            showSnackbarMessage("Tidak ada data saat ini");
+        }
+    }
+
+    private static class LoadNotesAsync extends AsyncTask<Void, Void, ArrayList<WisataBandung>> {
+        private final WeakReference<wisataBandungHelper> weakNoteHelper;
+        private final WeakReference<LoadWisataCallback> weakCallback;
+
+        private LoadNotesAsync(wisataBandungHelper noteHelper, LoadWisataCallback callback) {
+            this.weakNoteHelper = new WeakReference<>(noteHelper);
+            this.weakCallback = new WeakReference<>(callback);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            weakCallback.get().preExecute();
+        }
+
+        @Override
+        protected ArrayList<WisataBandung> doInBackground(Void... voids) {
+            Cursor dataCursor = weakNoteHelper.get().queryAll();
+            return mapHelper.mapCursorToArrayList(dataCursor);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<WisataBandung> notes) {
+            super.onPostExecute(notes);
+            weakCallback.get().postExecute(notes);
+        }
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         helper.close();
     }
 
-//    private void showSnackbarMessage(String message) {
-//        Snackbar.make(rvNotes, message, Snackbar.LENGTH_SHORT).show();
-//    }
+    private void showSnackbarMessage(String message) {
+        Snackbar.make(rvNotes, message, Snackbar.LENGTH_SHORT).show();
+    }
 
 }

@@ -1,8 +1,5 @@
 package com.example.tugas_uas_akb_if3_10117118.Presenter;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,9 +75,9 @@ public class WisataBandungAdapter extends BaseAdapter {
         viewHolder.tvAlamat.setText(mWisataBandung.getAlamat());
         //viewHolder.tvKeterangan.setText(mWisataBandung.getKeterangan());
 
-        byte[] recordImg = mWisataBandung.getImg();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(recordImg,0,recordImg.length);
-        viewHolder.imgGambar.setImageBitmap(bitmap);
+//        byte[] recordImg = mWisataBandung.getImg();
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(recordImg,0,recordImg.length);
+//        viewHolder.imgGambar.setImageBitmap(bitmap);
 
 
         return view;
