@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textSecondary"
             android:fontFamily="sans-serif"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="105dp"
             android:textSize="15dp"
             android:text="@string/fungsi_pertama"/>
     </LinearLayout>

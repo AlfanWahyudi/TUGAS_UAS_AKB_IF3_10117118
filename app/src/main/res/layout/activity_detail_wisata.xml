@@ -59,7 +59,7 @@
                 android:id="@+id/buttonMaps"
                 android:layout_width="68dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_undraw_maps"
+                android:src="@drawable/ic_undraw_map_dark_k9pw"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"/>
         </LinearLayout>

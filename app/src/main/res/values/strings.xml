@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Bandung Apps</string>
     <string name="wisata">Wisata</string>
-    <string name="profil_pembuat">Profil Pembuat</string>
+    <string name="profil_pembuat">Profil</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="nama_wisata">Nama Wisata</string>
@@ -29,5 +29,6 @@
     <string name="telepon">Telepon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="kontak_pembuat">Kontak Pembuat</string>
+    <string name="kontak_pembuat">Kontak</string>
+    <string name="nama">Alfan Wahyudi</string>
 </resources>
