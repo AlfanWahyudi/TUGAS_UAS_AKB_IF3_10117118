@@ -1,5 +1,6 @@
 package com.example.tugas_uas_akb_if3_10117118.ui.wisata;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.tugas_uas_akb_if3_10117118.Data.Model.WisataBandung;
 import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.wisataBandungHelper;
+import com.example.tugas_uas_akb_if3_10117118.Presenter.CustomClickListener;
 import com.example.tugas_uas_akb_if3_10117118.R;
+import com.example.tugas_uas_akb_if3_10117118.ui.Maps.Maps;
 
 public class DetailWisata extends AppCompatActivity implements View.OnClickListener{
     public TextView detailNamaWisata, detailKategoriWisata, detailAlamatWisata, detailKeteranganWisata, detailHariBuka, detailJamOperasional;
     public ImageView detailGambarWisata;
-    public ImageButton ImgButtonMaps;
+    public ImageButton imgButtonMaps;
 
     private boolean isDetail = false;
     private WisataBandung mWisataBadung;
@@ -42,7 +45,17 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
         detailKeteranganWisata = findViewById(R.id.detail_keterangan);
         detailHariBuka = findViewById(R.id.detail_hari_buka);
         detailJamOperasional = findViewById(R.id.detail_jam_operasional);
+        imgButtonMaps = findViewById(R.id.buttonMaps);
 
+        imgButtonMaps.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Intent intent = new Intent(DetailWisata.this, Maps.class);
+                intent.putExtra(DetailWisata.EXTRA_POSITION, position);
+                intent.putExtra(DetailWisata.EXTRA_NOTE, mWisataBadung);
+                startActivity(intent);
+            }
+        }));
 
 
 //        ImgButtonMaps = findViewById(R.id.buttonMaps);
@@ -62,6 +75,8 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
             mWisataBadung = new WisataBandung();
         }
 
+
+
         if(isDetail){
             if(mWisataBadung != null){
                 detailNamaWisata.setText(mWisataBadung.getNamaWisata());
@@ -74,6 +89,7 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
                         .asBitmap()
                         .load(mWisataBadung.getImg())
                         .into(detailGambarWisata);
+
             }
         }
 //

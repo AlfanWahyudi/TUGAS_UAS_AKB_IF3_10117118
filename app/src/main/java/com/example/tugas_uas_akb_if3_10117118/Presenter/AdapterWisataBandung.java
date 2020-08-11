@@ -61,22 +61,18 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
     public void onBindViewHolder(@NonNull AdapterWisataBandung.WisataViewHolder holder, final int position) {
         holder.tvNamaWisata.setText(mListWisataBandung.get(position).getNamaWisata());
         holder.tvKategori.setText(mListWisataBandung.get(position).getKategori());
-      //  holder.tvAlamat.setText(mListWisataBandung.get(position).getAlamat());
-       // holder.tvHariBuka.setText(mListWisataBandung.get(position).getHariBuka());
-       // holder.tvJamOperasional.setText(mListWisataBandung.get(position).getJamOperasional());
 
         Glide.with(activity)
                 .asBitmap()
                 .load(mListWisataBandung.get(position).getImg())
                 .into(holder.imgGambar);
-       // holder.imgGambar.setImageBitmap(BitmapFactory.decodeByteArray(mListWisataBandung.get(position).getImg(), 0, mListWisataBandung.get(position).getImg().length));
-        holder.cvNote.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
+         holder.cvNote.setOnClickListener(new CustomClickListener(position, new CustomClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
                 Intent intent = new Intent(activity, DetailWisata.class);
                 intent.putExtra(DetailWisata.EXTRA_POSITION, position);
                 intent.putExtra(DetailWisata.EXTRA_NOTE, mListWisataBandung.get(position));
-                activity.startActivityForResult(intent, DetailWisata.REQUEST_UPDATE);
+                activity.startActivity(intent);
             }
         }));
     }
@@ -87,12 +83,10 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
     }
 
     public class WisataViewHolder extends RecyclerView.ViewHolder {
-        //final TextView tvNamaWisata, tvKategori;
         final TextView tvNamaWisata, tvKategori, tvAlamat, tvHariBuka, tvJamOperasional, tvKeterangan;
         final TextView tvDetailNamaWisata, tvDetailKategori;
         final ImageView imgGambar, imgDetailGambar;
         final CardView cvNote;
-
 
         public WisataViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,8 +101,6 @@ public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBand
             imgGambar = itemView.findViewById(R.id.gambar_wisata);
             imgDetailGambar = itemView.findViewById(R.id.detailgambarwisata);
             cvNote = itemView.findViewById(R.id.cv_item_note);
-
-
         }
 
     }

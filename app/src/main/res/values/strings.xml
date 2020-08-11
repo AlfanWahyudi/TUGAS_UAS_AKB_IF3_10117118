@@ -20,4 +20,13 @@
     <string name="keterangan_aplikasi">Menampilkan tempat wisata di wilayah Bandung</string>
     <string name="menampilkan_lokasi_tempat_wisata">Menampilkan lokasi tempat wisata</string>
     <string name="keterangan_disini">keterangan disini</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="email_menu_kontak">alfan.wahyudi98@gmail.com</string>
+    <string name="noTelepon">085284584219</string>
+    <string name="instagram_name">alfan.id</string>
+    <string name="email">Email</string>
+    <string name="ig">Instagram</string>
+    <string name="telepon">Telepon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

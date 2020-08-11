@@ -7,7 +7,7 @@
         android:title="@string/wisata" />
 
     <item
-        android:id="@+id/navigation_maps"
+        android:id="@+id/navigation_kontak"
         android:icon="@drawable/ic_map_24"
         android:title="@string/maps" />
 
