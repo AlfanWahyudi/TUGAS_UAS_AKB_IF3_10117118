@@ -1,14 +1,11 @@
 package com.example.tugas_uas_akb_if3_10117118.ui.wisata;
 
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -25,7 +22,6 @@ import com.example.tugas_uas_akb_if3_10117118.Presenter.AdapterWisataBandung;
 import com.example.tugas_uas_akb_if3_10117118.R;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.ByteArrayOutputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -35,13 +31,9 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
     private RecyclerView rvNotes;
     private wisataBandungHelper helper;
     private static final String EXTRA_STATE = "EXTRA_STATE";
-    //private ListView rvNotes;
-    private WisataBandung wisataBandung;
-   // private ArrayList<WisataBandung> mList = new ArrayList<>();
-    //private WisataAdapter adapter = null;
     private AdapterWisataBandung adapter;
     private ProgressBar progressBar;
-    //private LinearLayoutManager linearLayoutManager;
+
 
     public wisataFragment() {
 
@@ -77,13 +69,6 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
         return view;
     }
 
-    public static byte[] imageViewToByte(ImageView image){
-        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
-    }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {

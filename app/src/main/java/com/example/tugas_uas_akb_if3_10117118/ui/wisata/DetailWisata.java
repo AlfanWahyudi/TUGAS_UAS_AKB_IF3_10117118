@@ -28,7 +28,6 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
 
     public static final String EXTRA_NOTE = "extra_note";
     public static final String EXTRA_POSITION = "extra_position";
-    public static final int REQUEST_UPDATE = 200;
 
 
 
@@ -57,14 +56,6 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
             }
         }));
 
-
-//        ImgButtonMaps = findViewById(R.id.buttonMaps);
-//        ImgButtonMaps.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
         wisataHelper = wisataBandungHelper.getInstance(getApplicationContext());
 
         mWisataBadung = getIntent().getParcelableExtra(EXTRA_NOTE);
@@ -92,16 +83,6 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
 
             }
         }
-//
-//        if(isDetail){
-//            if (mWisataBadung != null){
-//                detailNamaWisata.setText(mWisataBadung.getNamaWisata());
-//                detailKategoriWisata.setText(mWisataBadung.getKategori());
-//                detailAlamatWisata.setText(mWisataBadung.getAlamat());
-//                detailGambarWisata.setImageBitmap(BitmapFactory.decodeByteArray(mWisataBadung.getImg(), 0, mWisataBadung.getImg().length));
-//            }
-//        }
-
 
     }
 

@@ -1,7 +1,6 @@
 package com.example.tugas_uas_akb_if3_10117118.Presenter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,6 @@ import java.util.List;
 public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBandung.WisataViewHolder> {
     private ArrayList<WisataBandung> mListWisataBandung = new ArrayList<>();
     private Activity activity;
-    private Context mContext;
 
 
     public AdapterWisataBandung(Activity activity){
