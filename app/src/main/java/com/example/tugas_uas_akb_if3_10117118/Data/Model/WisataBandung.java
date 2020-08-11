@@ -11,9 +11,12 @@ public class WisataBandung implements Parcelable{
     private String hariBuka;
     private String img;
     private String jamOperasional;
+    private String keteranganSingkat;
+    private String latitude;
+    private String longitude;
 
 
-    public WisataBandung(int id, String namaWisata, String kategori, String alamat, String hariBuka, String img, String jamOperasional) {
+    public WisataBandung(int id, String namaWisata, String kategori, String alamat, String hariBuka, String img, String jamOperasional, String keteranganSingkat, String latitude, String longitude) {
         this.id = id;
         this.namaWisata = namaWisata;
         this.kategori = kategori;
@@ -21,6 +24,33 @@ public class WisataBandung implements Parcelable{
         this.hariBuka = hariBuka;
         this.img = img;
         this.jamOperasional = jamOperasional;
+        this.keteranganSingkat = keteranganSingkat;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public String getKeteranganSingkat() {
+        return keteranganSingkat;
+    }
+
+    public void setKeteranganSingkat(String keteranganSingkat) {
+        this.keteranganSingkat = keteranganSingkat;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getHariBuka() {
@@ -93,6 +123,9 @@ public class WisataBandung implements Parcelable{
         dest.writeString(this.img);
         dest.writeString(this.hariBuka);
         dest.writeString(this.jamOperasional);
+        dest.writeString(this.keteranganSingkat);
+        dest.writeString(this.latitude);
+        dest.writeString(this.longitude);
     }
 
     public WisataBandung(){
@@ -106,6 +139,9 @@ public class WisataBandung implements Parcelable{
         this.img = in.readString();
         this.hariBuka = in.readString();
         this.jamOperasional = in.readString();
+        this.keteranganSingkat = in.readString();
+        this.latitude = in.readString();
+        this.longitude = in.readString();
     }
     public static final Parcelable.Creator<WisataBandung> CREATOR = new Parcelable.Creator<WisataBandung>(){
 

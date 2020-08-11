@@ -1,19 +1,20 @@
 package com.example.tugas_uas_akb_if3_10117118.ui.wisata;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 import com.example.tugas_uas_akb_if3_10117118.Data.Model.WisataBandung;
 import com.example.tugas_uas_akb_if3_10117118.Data.Sqlite.wisataBandungHelper;
 import com.example.tugas_uas_akb_if3_10117118.R;
 
 public class DetailWisata extends AppCompatActivity implements View.OnClickListener{
-    public TextView detailNamaWisata, detailKategoriWisata, detailAlamatWisata, detalKeteranganWisata;
+    public TextView detailNamaWisata, detailKategoriWisata, detailAlamatWisata, detailKeteranganWisata, detailHariBuka, detailJamOperasional;
     public ImageView detailGambarWisata;
     public ImageButton ImgButtonMaps;
 
@@ -33,27 +34,48 @@ public class DetailWisata extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_wisata);
         getSupportActionBar().hide();
+
         detailNamaWisata = findViewById(R.id.detail_nama_wisata);
         detailKategoriWisata = findViewById(R.id.detail_kategori);
         detailAlamatWisata = findViewById(R.id.detail_alamat);
-        detailKategoriWisata = findViewById(R.id.detail_keterangan);
         detailGambarWisata = findViewById(R.id.detailgambarwisata);
-        ImgButtonMaps = findViewById(R.id.buttonMaps);
-        ImgButtonMaps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        detailKeteranganWisata = findViewById(R.id.detail_keterangan);
+        detailHariBuka = findViewById(R.id.detail_hari_buka);
+        detailJamOperasional = findViewById(R.id.detail_jam_operasional);
 
-            }
-        });
-//        wisataHelper = wisataBandungHelper.getInstance(getApplicationContext());
+
+
+//        ImgButtonMaps = findViewById(R.id.buttonMaps);
+//        ImgButtonMaps.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //
-//        mWisataBadung = getIntent().getParcelableExtra(EXTRA_NOTE);
-//        if (mWisataBadung != null){
-//            position = getIntent().getIntExtra(EXTRA_POSITION, 0);
-//            isDetail= true;
-//        }else {
-//            mWisataBadung = new WisataBandung();
-//        }
+//            }
+//        });
+        wisataHelper = wisataBandungHelper.getInstance(getApplicationContext());
+
+        mWisataBadung = getIntent().getParcelableExtra(EXTRA_NOTE);
+        if (mWisataBadung != null){
+            position = getIntent().getIntExtra(EXTRA_POSITION, 0);
+            isDetail= true;
+        }else {
+            mWisataBadung = new WisataBandung();
+        }
+
+        if(isDetail){
+            if(mWisataBadung != null){
+                detailNamaWisata.setText(mWisataBadung.getNamaWisata());
+                detailKategoriWisata.setText(mWisataBadung.getKategori());
+                detailAlamatWisata.setText(mWisataBadung.getAlamat());
+                detailHariBuka.setText(mWisataBadung.getHariBuka());
+                detailJamOperasional.setText(mWisataBadung.getJamOperasional());
+                detailKeteranganWisata.setText(mWisataBadung.getKeteranganSingkat());
+                Glide.with(this)
+                        .asBitmap()
+                        .load(mWisataBadung.getImg())
+                        .into(detailGambarWisata);
+            }
+        }
 //
 //        if(isDetail){
 //            if (mWisataBadung != null){

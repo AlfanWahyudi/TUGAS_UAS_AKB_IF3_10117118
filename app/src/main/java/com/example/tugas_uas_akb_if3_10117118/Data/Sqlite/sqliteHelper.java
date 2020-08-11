@@ -16,6 +16,9 @@ public class sqliteHelper extends SQLiteOpenHelper {
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL)",
             databaseAtribut.TABLE_NAME,
             databaseAtribut.NoteColumns._ID,
@@ -24,7 +27,10 @@ public class sqliteHelper extends SQLiteOpenHelper {
             databaseAtribut.NoteColumns.alamat_wisata,
             databaseAtribut.NoteColumns.hari_buka,
             databaseAtribut.NoteColumns.gambar_wisata,
-            databaseAtribut.NoteColumns.jam_operasional);
+            databaseAtribut.NoteColumns.jam_operasional,
+            databaseAtribut.NoteColumns.keterangan_singkat,
+            databaseAtribut.NoteColumns.latitude,
+            databaseAtribut.NoteColumns.longitude);
 
     public sqliteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +47,9 @@ public class sqliteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String namaWisata, String kategori, String alamat, String hariBuka, String img, String jamOperasional){
+    public boolean insertData(String namaWisata, String kategori, String alamat, String hariBuka,
+                              String img, String jamOperasional, String keteranganSingkat,
+                              String latitude, String longitude){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(databaseAtribut.NoteColumns.nama_wisata,namaWisata);
@@ -50,6 +58,9 @@ public class sqliteHelper extends SQLiteOpenHelper {
         values.put(databaseAtribut.NoteColumns.hari_buka,hariBuka);
         values.put(databaseAtribut.NoteColumns.gambar_wisata,img);
         values.put(databaseAtribut.NoteColumns.jam_operasional,jamOperasional);
+        values.put(databaseAtribut.NoteColumns.keterangan_singkat, keteranganSingkat);
+        values.put(databaseAtribut.NoteColumns.latitude, latitude);
+        values.put(databaseAtribut.NoteColumns.longitude, longitude);
         long result = db.insert(databaseAtribut.TABLE_NAME,null,values);
         if(result == -1){
             return false;

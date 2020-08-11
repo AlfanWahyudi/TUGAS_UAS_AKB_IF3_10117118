@@ -12,6 +12,10 @@ public class databaseAtribut {
         public static String hari_buka= "hari_buka";
         public static String gambar_wisata = "url_gambar_wisata";
         public static String jam_operasional = "jam_operasional";
+        public static String keterangan_singkat = "keterangan_singkat";
+        public static String latitude = "latitude";
+        public static String longitude = "longitude";
+
 
     }
 }

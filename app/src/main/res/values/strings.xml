@@ -19,4 +19,5 @@
     <string name="maps">Maps</string>
     <string name="keterangan_aplikasi">Menampilkan tempat wisata di wilayah Bandung</string>
     <string name="menampilkan_lokasi_tempat_wisata">Menampilkan lokasi tempat wisata</string>
+    <string name="keterangan_disini">keterangan disini</string>
 </resources>

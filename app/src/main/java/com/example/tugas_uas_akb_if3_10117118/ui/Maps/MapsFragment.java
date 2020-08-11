@@ -32,7 +32,7 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng bandung = new LatLng(-6.916699, 107.617571);
+            LatLng bandung = new LatLng(Double.valueOf("-6.900729"), 107.621454);
             googleMap.addMarker(new MarkerOptions().position(bandung).title("Marker in Bandung"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(bandung));
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(10),200,null);

@@ -15,11 +15,13 @@ public class mapHelper{
             String namaWisata = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.nama_wisata));
             String kategori = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.kategori_wisata));
             String alamat = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.alamat_wisata));
-            String keterangan = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.hari_buka));
+            String hariBuka = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.hari_buka));
             String img = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.gambar_wisata));
             String jamOperasional = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.jam_operasional));
-            wisataBandungList.add(new WisataBandung(id, namaWisata, kategori, alamat, keterangan, img, jamOperasional));
-
+            String keteranganSingkat = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.keterangan_singkat));
+            String latitude = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.latitude));
+            String longitude = wisataBandungCursor.getString(wisataBandungCursor.getColumnIndexOrThrow(databaseAtribut.NoteColumns.longitude));
+            wisataBandungList.add(new WisataBandung(id, namaWisata, kategori, alamat, hariBuka, img, jamOperasional, keteranganSingkat, latitude, longitude));
         }
 
     return wisataBandungList;
