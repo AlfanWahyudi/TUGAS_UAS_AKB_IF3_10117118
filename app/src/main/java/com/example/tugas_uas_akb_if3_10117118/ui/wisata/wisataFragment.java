@@ -63,31 +63,7 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
 
         helper = wisataBandungHelper.getInstance(getActivity());
         helper.open();
-//
-//        ContentValues values = new ContentValues();
-//        values.put(nama_wisata, "Bandung");
-//        values.put(kategori_wisata, "taman");
-//        values.put(alamat_wisata, "jln sekeloa utara 1");
-//        values.put(hari_buka, "senin-minggu");
-//        values.put(gambar_wisata, "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/filters:watermark(file/2017/cms/img/watermark.png,-0,0,0)/photo/2020/04/13/682906642.jpg");
-//        values.put(jam_operasional, "8AM-5PM");
-//        long result = helper.insert(values);
-//
-//        ContentValues values1 = new ContentValues();
-//        values1.put(nama_wisata, "Banduafsdfng");
-//        values1.put(kategori_wisata, "taasfman");
-//        values1.put(alamat_wisata, "jln sekasdfeloa utara 1");
-//        values1.put(hari_buka, "senin-minggasdfu");
-//        values1.put(gambar_wisata, "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/filters:watermark(file/2017/cms/img/watermark.png,-0,0,0)/photo/2020/04/13/682906642.jpg");
-//        values1.put(jam_operasional, "8AM-5PadsfadM");
-//        long result1 = helper.insert(values1);
 
-//        if(result == true){
-//            Toast.makeText(getActivity(),"berhasil ditambahkan",Toast.LENGTH_SHORT).show();
-//
-//        }else{
-//            Toast.makeText(getActivity(),"gagal ditambahkan",Toast.LENGTH_SHORT).show();
-//        }
 
         if (savedInstanceState == null) {
             new LoadNotesAsync(helper, this).execute();
@@ -97,40 +73,6 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
                 adapter.setListNotes(list);
             }
         }
-
-
-
-
-
-//        Cursor cursor = helper.queryAll();
-//        adapter.setListNotes(mList, cursor);
-//        adapter.getListNotes();
-
-
-//        rvNotes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                Cursor c = helper.queryById(String.valueOf(id));
-//                ArrayList<Integer> arrID = new ArrayList<Integer>();
-//                while( c.moveToNext() ){
-//                    arrID.add(c.getInt(0));
-//                }
-//
-//                return true;
-//            }
-//
-//        });
-
-
-//
-//        if (savedInstanceState == null) {
-//            new LoadNotesAsync(helper, this).execute();
-//        } else {
-//            ArrayList<WisataBandung> list = savedInstanceState.getParcelableArrayList(EXTRA_STATE);
-//            if (list != null) {
-//              adapter.setListNotes(list);
-//            }
-//        }
 
         return view;
     }
@@ -198,11 +140,6 @@ public class wisataFragment extends Fragment implements LoadWisataCallback{
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        helper.close();
-    }
 
     private void showSnackbarMessage(String message) {
         Snackbar.make(rvNotes, message, Snackbar.LENGTH_SHORT).show();
