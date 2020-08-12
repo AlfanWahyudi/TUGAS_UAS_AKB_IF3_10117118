@@ -23,7 +23,7 @@ import java.util.List;
 /** NIM : 10117118
  * Nama : Alfan Wahyudi
  * Kelas : IF-3
- * Tanggal : 12-05-2020**/
+ * Tanggal : 12-08-2020**/
 
 public class AdapterWisataBandung extends RecyclerView.Adapter<AdapterWisataBandung.WisataViewHolder> {
     private ArrayList<WisataBandung> mListWisataBandung = new ArrayList<>();

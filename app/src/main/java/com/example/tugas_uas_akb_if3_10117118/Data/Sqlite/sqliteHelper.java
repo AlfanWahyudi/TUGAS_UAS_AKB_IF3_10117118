@@ -5,6 +5,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 
 public class sqliteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "WisataBandungRaya";

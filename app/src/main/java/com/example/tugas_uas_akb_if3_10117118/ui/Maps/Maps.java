@@ -14,6 +14,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private boolean isMaps = false;

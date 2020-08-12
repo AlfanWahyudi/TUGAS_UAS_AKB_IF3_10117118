@@ -1,20 +1,19 @@
 package com.example.tugas_uas_akb_if3_10117118.ui.informasi;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.tugas_uas_akb_if3_10117118.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link page2#newInstance} factory method to
- * create an instance of this fragment.
- */
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 public class page2 extends Fragment {
     private int page;
 

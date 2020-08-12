@@ -25,6 +25,10 @@ import com.google.android.material.snackbar.Snackbar;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
 
 public class wisataFragment extends Fragment implements LoadWisataCallback{
 

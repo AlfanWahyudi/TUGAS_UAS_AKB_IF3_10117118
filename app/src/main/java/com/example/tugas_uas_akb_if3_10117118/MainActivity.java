@@ -14,6 +14,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.tugas_uas_akb_if3_10117118.ui.informasi.InformasiAplikasi;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 public class MainActivity extends AppCompatActivity {
     private Button mButton;
 

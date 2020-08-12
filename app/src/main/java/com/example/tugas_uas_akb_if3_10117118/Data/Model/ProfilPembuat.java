@@ -1,5 +1,10 @@
 package com.example.tugas_uas_akb_if3_10117118.Data.Model;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 public class ProfilPembuat {
     private String nim;
     private String nama;

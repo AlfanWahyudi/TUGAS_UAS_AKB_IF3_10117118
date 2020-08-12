@@ -5,7 +5,7 @@ import android.view.View;
 /** NIM : 10117118
  * Nama : Alfan Wahyudi
  * Kelas : IF-3
- * Tanggal : 12-05-2020**/
+ * Tanggal : 12-08-2020**/
 
 public class CustomClickListener implements View.OnClickListener {
     private int position;

@@ -16,6 +16,11 @@ import com.example.tugas_uas_akb_if3_10117118.Presenter.CustomClickListener;
 import com.example.tugas_uas_akb_if3_10117118.R;
 import com.example.tugas_uas_akb_if3_10117118.ui.Maps.Maps;
 
+/** NIM : 10117118
+ * Nama : Alfan Wahyudi
+ * Kelas : IF-3
+ * Tanggal : 12-08-2020**/
+
 public class DetailWisata extends AppCompatActivity implements View.OnClickListener{
     public TextView detailNamaWisata, detailKategoriWisata, detailAlamatWisata, detailKeteranganWisata, detailHariBuka, detailJamOperasional;
     public ImageView detailGambarWisata;
